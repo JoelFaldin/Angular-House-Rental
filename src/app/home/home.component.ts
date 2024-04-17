@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { HousingLocationComponent } from '../housing-location/housing-location.component';
+import { HousingLocation } from '../housinglocation';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HousingLocationComponent],
   template: `
     <section>
       <form>
@@ -12,9 +14,23 @@ import { Component } from '@angular/core';
         <button class="primary" type="button">Search</button>
       </form>
     </section>
+    <section class="results">
+      <app-housing-location [housingLocation]="housingLocation" />
+    </section>
   `,
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  readonly baseUrl = 'https://angular.dev/assets/tutorials/common';
 
+  housingLocation: HousingLocation = {
+    id: 9999,
+    name: 'Test Home',
+    city: 'Test city',
+    state: 'ST',
+    photo: `../../assets/houses/house1.webp`,
+    availableUnits: 99,
+    wifi: true,
+    laundry: false,
+  };
 }

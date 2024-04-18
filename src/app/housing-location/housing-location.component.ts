@@ -25,4 +25,6 @@ import { RouterModule, RouterLink, RouterOutlet } from '@angular/router';
 
 export class HousingLocationComponent {
   @Input() housingLocation!: HousingLocation;
+  
+  
 }

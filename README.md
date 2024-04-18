@@ -1,3 +1,7 @@
+# Hey there
+Quick note: run `json-server --watch db.json` after installing the packages to start the json server! (It's just a json file that mocks a database.)
+In another terminal, start the 🅰️ngular app by doing `ng serve -o`.
+
 # AngularTutorial
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.

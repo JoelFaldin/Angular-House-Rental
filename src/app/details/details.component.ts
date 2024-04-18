@@ -10,7 +10,7 @@ import { HousingLocation } from '../housinglocation';
   standalone: true,
   imports: [],
   template: `
-    <article>
+     <article>
       <img
         class="listing-photo"
         [src]="housingLocation?.photo"
@@ -35,6 +35,7 @@ import { HousingLocation } from '../housinglocation';
 })
 export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
+
   housingService = inject(HousingService);
   housingLocation: HousingLocation | undefined;
   

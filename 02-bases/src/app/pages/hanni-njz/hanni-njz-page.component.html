@@ -3,32 +3,14 @@
 
 <section class="row">
   <div class="col-12 col-sm-6">
-    <h3>Add: {{ song() }} outfit</h3>
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Song"
-      [value]="song()"
-      (change)="song.set(txtSong.value)"
-      #txtSong
-    >
-
-    <input
-      type="number"
-      class="form-control mt-2"
-      placeholder="Coolness"
-      [value]="coolness()"
-      (change)="coolness.set(txtCoolness.value ? +txtCoolness.value : 0)"
-      #txtCoolness
-    >
-
-    <button (click)="addOutfit()" class="mt-2 btn btn-primary">
-      Add
-    </button>
+    <njz-add-outfit />
   </div>
 
 
   <div class="col-12 col-sm-6">
-    <njz-outfit-list [outfits]="outfits()" />
+    <njz-outfit-list
+      listName="List of outfits :o"
+      [outfits]="outfits()"
+    />
   </div>
 </section>

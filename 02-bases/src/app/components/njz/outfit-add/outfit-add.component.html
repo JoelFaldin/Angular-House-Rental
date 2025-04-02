@@ -1,0 +1,23 @@
+<h3>Add: {{ newSong() }} outfit</h3>
+
+<input
+  type="text"
+  class="form-control"
+  placeholder="Song"
+  [value]="newSong()"
+  #txtSong
+  (change)="newSong.set(txtSong.value)"
+>
+
+<input
+  type="number"
+  class="form-control mt-2"
+  placeholder="Coolness"
+  [value]="coolnessValue()"
+  #txtCoolness
+  (change)="coolnessValue.set(txtCoolness.value ? +txtCoolness.value : 0)"
+>
+
+<button (click)="addOutfit()" class="mt-2 btn btn-primary">
+  Add
+</button>

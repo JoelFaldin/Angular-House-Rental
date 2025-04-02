@@ -7,6 +7,6 @@ import type { Outfits } from '../../../interfaces/outfit.interface';
   templateUrl: './outfit-list.component.html',
 })
 export class OutfitListComponent {
+  listName = input.required<string>();
   outfits = input.required<Outfits[]>();
-
 }

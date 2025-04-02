@@ -14,6 +14,9 @@ interface Outfits {
 })
 
 export class HanniPageComponent {
+  song = signal('Supernatural');
+  coolness = signal(70);
+
   outfits = signal<Outfits[]>([
     { id: 1, song: 'Go hanni', coolness: 100 },
     { id: 2, song: 'New Jeans', coolness: 50 },
@@ -26,4 +29,25 @@ export class HanniPageComponent {
   //     'text-danger': true,
   //   }
   // })
+
+  addOutfit() {
+    if (!this.song() || !this.coolness() || this.coolness() < 0) {
+      return;
+    }
+
+    const newOutfit: Outfits = {
+      id: this.outfits().length + 1,
+      song: this.song(),
+      coolness: this.coolness(),
+    }
+
+    this.outfits.update(list => [...list, newOutfit])
+
+    this.resetFields();
+  }
+
+  resetFields() {
+    this.song.set('');
+    this.coolness.set(0);
+  }
 }

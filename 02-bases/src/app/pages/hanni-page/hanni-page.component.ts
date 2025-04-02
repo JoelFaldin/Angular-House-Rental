@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 
 interface Outfits {
   id: number;
@@ -7,7 +7,9 @@ interface Outfits {
 }
 
 @Component({
-  imports: [],
+  imports: [
+    // ngClass
+  ],
   templateUrl: './hanni-page.component.html',
 })
 
@@ -18,4 +20,10 @@ export class HanniPageComponent {
     { id: 3, song: 'Right Now', coolness: 80 },
     { id: 4, song: 'OMG', coolness: 60 },
   ]);
+
+  // coolnessClass = computed(() => {
+  //   return {
+  //     'text-danger': true,
+  //   }
+  // })
 }

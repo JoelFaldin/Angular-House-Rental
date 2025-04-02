@@ -20,8 +20,14 @@
     <ul>
       @for (outfit of outfits(); track outfit.id; let idx = $index) {
         <li>
-          <span>{{ idx + 1 }} - {{ outfit.song }}</span>
-          <strong class="text-danger"> ({{ outfit.coolness }}/100)</strong>
+          <span>{{ idx + 1 }} - {{ outfit.song }} </span>
+          <strong
+            [class.text-danger]="outfit.coolness > 70"
+            [class.text-primary]="outfit.coolness < 70"
+          >
+          <!-- [ngClass]="coolnessClass()" -->
+          ({{ outfit.coolness }}/100)
+          </strong>
         </li>
       }
     </ul>

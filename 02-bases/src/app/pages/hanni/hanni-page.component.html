@@ -1,0 +1,55 @@
+<h1>Hanni page :D</h1>
+<hr />
+
+<section class="row">
+  <div class="col-12 col-sm-6">
+    <h3>Add: {{ song() }} outfit</h3>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Song"
+      [value]="song()"
+      (change)="song.set(txtSong.value)"
+      #txtSong
+    >
+
+    <input
+      type="number"
+      class="form-control mt-2"
+      placeholder="Coolness"
+      [value]="coolness()"
+      (change)="coolness.set(txtCoolness.value ? +txtCoolness.value : 0)"
+      #txtCoolness
+    >
+
+    <button (click)="addOutfit()" class="mt-2 btn btn-primary">
+      Add
+    </button>
+  </div>
+
+
+  <div class="col-12 col-sm-6">
+    <h3>List</h3>
+
+    <ul>
+      @for (outfit of outfits(); track outfit.id; let idx = $index) {
+        @if(outfit.coolness > 50) {
+          <li>
+            <span>{{ idx + 1 }} - {{ outfit.song }} </span>
+            <strong
+              [class.text-danger]="outfit.coolness > 70"
+              [class.text-primary]="outfit.coolness < 70"
+            >
+              <!-- [ngClass]="coolnessClass()" -->
+              ({{ outfit.coolness }}/100)
+            </strong>
+          </li>
+        } @else {
+          <li>
+            <strong>Cool but not as cool as others</strong>
+          </li>
+        }
+      }
+    </ul>
+  </div>
+</section>

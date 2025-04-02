@@ -1,0 +1,29 @@
+<h1>Hanni page :D</h1>
+<hr />
+
+<section class="row">
+  <div class="col-12 col-sm-6">
+    <h3>Add:</h3>
+    <input type="text" class="form-control" placeholder="Outfit">
+
+    <input type="number" class="form-control mt-2" placeholder="Song">
+
+    <button class="mt-2 btn btn-primary">
+      Add
+    </button>
+  </div>
+
+
+  <div class="col-12 col-sm-6">
+    <h3>List</h3>
+
+    <ul>
+      @for (outfit of outfits(); track outfit.id; let idx = $index) {
+        <li>
+          <span>{{ idx + 1 }} - {{ outfit.song }}</span>
+          <strong class="text-danger"> ({{ outfit.coolness }}/100)</strong>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

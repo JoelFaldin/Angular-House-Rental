@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { Outfits } from '../../../interfaces/outfit.interface';
+import { Component, output, signal } from '@angular/core';
+import { Outfit } from '../../../interfaces/outfit.interface';
 
 @Component({
   selector: 'njz-add-outfit',
@@ -9,19 +9,21 @@ export class AddOutfitComponent {
   newSong = signal('');
   coolnessValue = signal(0);
 
+  newOutfit = output<Outfit>();
+
   addOutfit() {
     if (!this.newSong() || !this.coolnessValue() || this.coolnessValue() < 0) {
       return;
     }
 
-    const newOutfit: Outfits = {
-      id: 100,
+    const newOutfit: Outfit = {
+      id: Math.floor(Math.random() * 10000),
       song: this.newSong(),
       coolness: this.coolnessValue(),
     }
 
-    console.log({ newOutfit });
     // this.outfits.update(list => [...list, newOutfit])
+    this.newOutfit.emit(newOutfit);
     this.resetFields();
   }
 

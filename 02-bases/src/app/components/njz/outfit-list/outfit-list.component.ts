@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import type { Outfits } from '../../../interfaces/outfit.interface';
+import type { Outfit } from '../../../interfaces/outfit.interface';
 
 @Component({
   selector: 'njz-outfit-list',
@@ -8,5 +8,5 @@ import type { Outfits } from '../../../interfaces/outfit.interface';
 })
 export class OutfitListComponent {
   listName = input.required<string>();
-  outfits = input.required<Outfits[]>();
+  outfits = input.required<Outfit[]>();
 }

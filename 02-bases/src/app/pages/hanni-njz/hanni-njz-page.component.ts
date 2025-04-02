@@ -1,12 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { OutfitListComponent } from "../../components/njz/outfit-list/outfit-list.component";
 import { AddOutfitComponent } from "../../components/njz/outfit-add/outfit-add.component";
-
-interface Outfits {
-  id: number;
-  song: string;
-  coolness: number;
-}
+import type { Outfit } from '../../interfaces/outfit.interface';
 
 @Component({
   selector: 'hanni-njz',
@@ -15,8 +10,12 @@ interface Outfits {
 })
 
 export class HanniNjzPageComponent {
-  outfits = signal<Outfits[]>([
+  outfits = signal<Outfit[]>([
     { id: 1, song: 'Go hanni', coolness: 100 },
     { id: 2, song: 'New Jeans', coolness: 70 },
   ]);
+
+  addOutfit(outfit: Outfit) {
+    this.outfits.update(prev => [...prev, outfit]);
+  }
 }

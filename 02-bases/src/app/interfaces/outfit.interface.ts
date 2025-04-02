@@ -1,4 +1,4 @@
-export interface Outfits {
+export interface Outfit {
   id: number;
   song: string;
   coolness: number;

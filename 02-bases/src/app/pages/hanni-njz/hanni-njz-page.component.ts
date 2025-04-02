@@ -1,7 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { OutfitListComponent } from "../../components/njz/outfit-list/outfit-list.component";
 import { AddOutfitComponent } from "../../components/njz/outfit-add/outfit-add.component";
-import type { Outfit } from '../../interfaces/outfit.interface';
+import { NJZService } from '../../services/njz.service';
 
 @Component({
   selector: 'hanni-njz',
@@ -10,12 +10,5 @@ import type { Outfit } from '../../interfaces/outfit.interface';
 })
 
 export class HanniNjzPageComponent {
-  outfits = signal<Outfit[]>([
-    { id: 1, song: 'Go hanni', coolness: 100 },
-    { id: 2, song: 'New Jeans', coolness: 70 },
-  ]);
-
-  addOutfit(outfit: Outfit) {
-    this.outfits.update(prev => [...prev, outfit]);
-  }
+  public njzService = inject(NJZService);
 }

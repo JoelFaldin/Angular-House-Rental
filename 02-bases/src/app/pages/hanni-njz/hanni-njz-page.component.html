@@ -4,7 +4,7 @@
 <section class="row">
   <div class="col-12 col-sm-6">
     <njz-add-outfit
-      (newOutfit)="addOutfit($event)"
+      (newOutfit)="njzService.addOutfit($event)"
     />
   </div>
 
@@ -12,7 +12,7 @@
   <div class="col-12 col-sm-6">
     <njz-outfit-list
       listName="List of outfits :o"
-      [outfits]="outfits()"
+      [outfits]="njzService.outfits()"
     />
   </div>
 </section>

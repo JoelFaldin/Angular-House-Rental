@@ -29,27 +29,6 @@
 
 
   <div class="col-12 col-sm-6">
-    <h3>List</h3>
-
-    <ul>
-      @for (outfit of outfits(); track outfit.id; let idx = $index) {
-        @if(outfit.coolness > 50) {
-          <li>
-            <span>{{ idx + 1 }} - {{ outfit.song }} </span>
-            <strong
-              [class.text-danger]="outfit.coolness > 70"
-              [class.text-primary]="outfit.coolness < 70"
-            >
-              <!-- [ngClass]="coolnessClass()" -->
-              ({{ outfit.coolness }}/100)
-            </strong>
-          </li>
-        } @else {
-          <li>
-            <strong>Cool but not as cool as others</strong>
-          </li>
-        }
-      }
-    </ul>
+    <njz-outfit-list [outfits]="outfits()" />
   </div>
 </section>

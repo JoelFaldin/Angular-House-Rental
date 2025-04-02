@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { OutfitListComponent } from "../../components/njz/outfit-list/outfit-list.component";
 
 interface Outfits {
   id: number;
@@ -9,6 +10,7 @@ interface Outfits {
 @Component({
   selector: 'hanni-njz',
   templateUrl: './hanni-njz-page.component.html',
+  imports: [OutfitListComponent],
 })
 
 export class HanniNjzPageComponent {
